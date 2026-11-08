@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data policy - 650 Group AI</title>
+<link rel="icon" href="logo.png?v=2">
+<style>
+  /* 650 Group report-cover look (same as the /results report): red stripe down the left edge, logo top-right,
+     dark bold left-aligned titles, red accents, square cards with a red left edge */
+  :root { --red:#c6231e; --page:#ffffff; --surface:#ffffff; --ink:#231f20; --ink2:#575757; --grid:#e8e8eb; --axis:#cfcfcf; }
+  @media (prefers-color-scheme: dark) {
+    :root { --page:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --grid:#2c2c2a; --axis:#383835; }
+    .cover .logo { background:#fff; padding:4px 8px; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--page); }
+  .page { font:16px/1.55 Carlito, Calibri, "Segoe UI", system-ui, -apple-system, sans-serif; color:var(--ink);
+          background:var(--page); max-width:1100px; margin:0 auto; border-left:16px solid var(--red);
+          padding:22px 30px 30px; box-shadow:0 0 0 1px var(--grid); min-height:100vh; }
+  .cover { display:grid; grid-template-columns:1fr auto; align-items:start; gap:10px; padding:6px 0 18px; }
+  .cover .kick { color:var(--red); font-weight:700; letter-spacing:.6px; font-size:12px; text-transform:uppercase; }
+  .cover .logo { height:52px; display:block; }
+  .cover h1 { font-size:34px; line-height:1.2; font-weight:700; margin:46px 0 0; grid-column:1/-1; max-width:780px; }
+  .cover .sub { grid-column:1/-1; margin:14px 0 0; color:var(--ink2); font-size:18px; max-width:700px; }
+  .cover .cta { grid-column:1/-1; margin-top:22px; }
+  nav.links { grid-column:1/-1; margin-top:10px; font-size:14px; }
+  nav.links a { color:var(--red); text-decoration:underline; margin-right:16px; }
+  .btn { display:inline-block; background:var(--red); color:#fff; padding:10px 18px; text-decoration:none; font-weight:700; }
+  h2 { font-size:20px; font-weight:700; margin:34px 0 14px; padding:7px 0; border-top:1px solid var(--ink); border-bottom:1px solid var(--grid); }
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; }
+  .tile { background:var(--surface); border:1px solid var(--axis); border-left:6px solid var(--red);
+          box-shadow:0 1px 4px rgba(0,0,0,.10); padding:14px 16px; }
+  .tile h3 { margin:0 0 6px; font-size:17px; }
+  .tile p { margin:0; color:var(--ink2); font-size:15px; }
+  ul.facts { padding-left:20px; margin:0; }
+  ul.facts li { margin:6px 0; }
+  .page a { color:var(--red); }
+  .page a.btn { color:#fff; }
+  footer { margin-top:40px; padding-top:10px; border-top:1px solid var(--grid); color:var(--ink2); font-size:13px; }
+  @media (max-width:700px) {
+    .page { border-left-width:8px; padding:14px 14px 24px; }
+    .cover .logo { height:36px; }
+    .cover h1 { font-size:25px; margin-top:26px; }
+  }
+
+  .doc h2 { font-size:18px; } .doc p, .doc li { max-width:780px; } .eff { color:var(--ink2); font-size:14px; }
+</style>
+</head>
+<body>
+<div class="page doc">
+  <div class="cover">
+    <div><div class="kick"><a href="./" style="color:inherit;text-decoration:none">650 Group AI</a></div></div>
+    <a href="./"><img class="logo" src="logo.png?v=2" alt="650 Group logo"></a>
+    <h1>Data policy</h1>
+    <p class="eff">Effective 8 November 2026</p>
+  </div>
+
+  <h2>Zero data retention</h2>
+  <p>650 Group AI does not store the content of requests to our inference API. Prompts, files, tool definitions and model
+  outputs are processed in memory to produce the response and are discarded when the response is complete. We do not
+  write request or response content to disk, logs or databases.</p>
+  <h2>No training on your data</h2>
+  <p>We never use prompts or outputs to train, fine-tune or evaluate models, and we never sell or share them.</p>
+  <h2>What we do record</h2>
+  <p>For billing, capacity planning and abuse prevention we keep request <b>metadata</b> only:</p>
+  <ul class="facts">
+    <li>time of the request, model name, and which API key (or routing partner) sent it;</li>
+    <li>number of prompt and output tokens, response time, and whether the request succeeded, was refused as busy, or failed;</li>
+    <li>a request ID supplied by the caller or routing partner, if any.</li>
+  </ul>
+  <p>Metadata never contains request or response text. We keep it for up to 12 months for billing records, then delete it.</p>
+  <h2>Where requests are processed</h2>
+  <p>Requests are served from GPU servers that we rent from data-center providers, currently in the United States. Our
+  inference engine is configured not to log request content, and rented servers are deleted, with their disks, when
+  we stop using them.</p>
+  <h2>Changes and questions</h2>
+  <p>If this policy changes we will update this page and its effective date before the change applies. Questions:
+  <a href="mailto:info@650group.ai">info@650group.ai</a>.</p>
+
+  <footer>&copy; 2026 650 Group AI, LLC &middot; <a href="./">Home</a> &middot; <a href="data-policy.html">Data policy</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="mailto:info@650group.ai">info@650group.ai</a></footer>
+</div>
+</body>
+</html>
